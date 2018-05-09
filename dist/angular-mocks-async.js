@@ -27,11 +27,11 @@
 		
 		var definnitionsAsync = [];
 		
-		function $httpBackendAsync( method, url, data, callback, headers, timeout, withCredentials ) {
+		function $httpBackendAsync( method, url, data, callback, headers, timeout, withCredentials, responseType ) {
 			
 			var d = match( method, url, data, headers );
 	        if ( !d || d.passThrough || !d.getPromise ) {
-	            return $delegate.call(this, method, url, data, callback, headers, timeout, withCredentials );
+	            return $delegate.call(this, method, url, data, callback, headers, timeout, withCredentials, responseType );
 	        }
 	        
 	        if( !d.getPromise || ! typeof d.getPromise === 'function' ) {
